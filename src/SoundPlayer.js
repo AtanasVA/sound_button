@@ -1,5 +1,6 @@
-function SoundPlayer() {
-  const audioSound = new Audio(require("./badumtss.mp3"));
+function SoundPlayer(props) {
+  const audioSound = new Audio(props.sound.src);
+  console.log(props.name);
 
   const start = () => {
     audioSound.play();
@@ -7,8 +8,8 @@ function SoundPlayer() {
 
   return (
     <div>
-      <h1>BadumTss</h1>
-      <button onClick={start}>BadumTss</button>
+      <h1>Hello world</h1>
+      <button onClick={start}>{props.sound.name}</button>
     </div>
   );
 }
