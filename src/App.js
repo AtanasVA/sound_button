@@ -1,4 +1,5 @@
 import SoundPlayer from "./SoundPlayer";
+import "./App.css";
 
 function App() {
   const sounds = {

@@ -1,18 +1,30 @@
+import "./SoundPlayer.css";
+
 function SoundPlayer(props) {
-  const audioSound = new Audio(props.sound.src);
+  let audioSound = new Audio(props.sound.src);
 
   const start = () => {
+    if (audioSound === "") {
+      audioSound = new Audio(props.sound.src);
+    }
     audioSound.play();
   };
   const stop = () => {
     audioSound.pause();
+    audioSound = "";
   };
 
   return (
-    <div>
-      <h1>{props.sound.name}</h1>
-      <button onClick={start}>▶️</button>
-      <button onClick={stop}>⏹︎</button>
+    <div className="element">
+      <h1 className="soundName">{props.sound.name}</h1>
+      <div className="btnElement">
+        <button onClick={start} className="btnPlay">
+          ▶️
+        </button>
+        <button onClick={stop} className="btnStop">
+          ⏹︎
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,31 @@
+.element {
+  text-align: center;
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  width: 60vh;
+  height: 20vh;
+  margin-left: 35%;
+  background-color: rgba(157, 0, 224, 0.285);
+  margin-top: 2rem;
+}
+
+.soundName {
+  display: inline-block;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.btnPlay {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 5rem;
+  margin-top: 1rem;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.btnStop {
+  width: 5rem;
+  height: 2rem;
+  border-radius: 5rem;
+}
