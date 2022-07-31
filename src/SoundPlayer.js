@@ -1,17 +1,19 @@
 function SoundPlayer(props) {
   const audioSound = new Audio(props.sound.src);
-  console.log(props.name);
 
   const start = () => {
     audioSound.play();
   };
+  const stop = () => {
+    audioSound.pause();
+  };
 
   return (
     <div>
-      <h1>Hello world</h1>
-      <button onClick={start}>{props.sound.name}</button>
+      <h1>{props.sound.name}</h1>
+      <button onClick={start}>▶️</button>
+      <button onClick={stop}>⏹︎</button>
     </div>
   );
 }
-
 export default SoundPlayer;
