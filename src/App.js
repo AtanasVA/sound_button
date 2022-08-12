@@ -19,7 +19,6 @@ function App() {
 
   return (
     <div>
-      <h2>Hello world!</h2>
       <SoundPlayer sound={sounds[0]} />
       <SoundPlayer sound={sounds[1]} />
       <SoundPlayer sound={sounds[2]} />
