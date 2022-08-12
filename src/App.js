@@ -2,26 +2,27 @@ import SoundPlayer from "./SoundPlayer";
 import "./App.css";
 
 function App() {
-  const sounds = {
-    pingu: {
+  const sounds = [
+    {
       name: "Pingu",
       src: require("./sounds/noot.mp3"),
     },
-    badumtss: {
+    {
       name: "BadumTss",
       src: require("./sounds/badumtss.mp3"),
     },
-    iphone: {
+    {
       name: "iPhoneRing",
       src: require("./sounds/iPhoneRing.mp3"),
     },
-  };
+  ];
 
   return (
     <div>
-      <SoundPlayer sound={sounds.pingu} />
-      <SoundPlayer sound={sounds.badumtss} />
-      <SoundPlayer sound={sounds.iphone} />
+      <h2>Hello world!</h2>
+      <SoundPlayer sound={sounds[0]} />
+      <SoundPlayer sound={sounds[1]} />
+      <SoundPlayer sound={sounds[2]} />
     </div>
   );
 }
