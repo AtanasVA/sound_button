@@ -1,28 +1,38 @@
+import React, { useState } from "react";
 import SoundPlayer from "./SoundPlayer";
 import "./App.css";
+import UserLogin from "./Login/UserLogin";
+
+const sounds = [
+  {
+    name: "Pingu",
+    src: require("./sounds/noot.mp3"),
+  },
+  {
+    name: "BadumTss",
+    src: require("./sounds/badumtss.mp3"),
+  },
+  {
+    name: "iPhoneRing",
+    src: require("./sounds/iPhoneRing.mp3"),
+  },
+];
 
 function App() {
-  const sounds = [
-    {
-      name: "Pingu",
-      src: require("./sounds/noot.mp3"),
-    },
-    {
-      name: "BadumTss",
-      src: require("./sounds/badumtss.mp3"),
-    },
-    {
-      name: "iPhoneRing",
-      src: require("./sounds/iPhoneRing.mp3"),
-    },
-  ];
+  const [userData, updateUserData] = useState("");
+
+  const getUserDetails = (userDetails) => {
+    updateUserData(userDetails);
+  };
 
   return (
-    <div>
-      <SoundPlayer sound={sounds[0]} />
-      <SoundPlayer sound={sounds[1]} />
-      <SoundPlayer sound={sounds[2]} />
-    </div>
+    <React.Fragment>
+      <UserLogin userDetails={getUserDetails}></UserLogin>
+      {userData &&
+        sounds.map((sound) => (
+          <SoundPlayer key={sounds.indexOf(sound)} sound={sound} />
+        ))}
+    </React.Fragment>
   );
 }
 

@@ -1,0 +1,10 @@
+.element {
+  text-align: center;
+  width: 60vh;
+  height: 20vh;
+  margin-left: 35%;
+  background-color: #9d00e049;
+  margin-top: 2rem;
+  border-radius: 2rem;
+  border: 1px solid black;
+}

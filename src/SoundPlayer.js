@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SecretButton from "./Secret/SecretButton";
 import "./SoundPlayer.css";
+import Wrapper from "./Helpers/Wrapper";
 
 function SoundPlayer(props) {
   const [title, setTitle] = useState(props.sound.name);
@@ -25,7 +26,7 @@ function SoundPlayer(props) {
   };
 
   return (
-    <div className="element">
+    <Wrapper>
       <h1 className="soundName">{title}</h1>
       {props.sound.name === "Pingu" && (
         <SecretButton
@@ -42,7 +43,7 @@ function SoundPlayer(props) {
           ⏹︎
         </button>
       </div>
-    </div>
+    </Wrapper>
   );
 }
 export default SoundPlayer;
