@@ -20,15 +20,25 @@ const sounds = [
 
 function App() {
   const [userData, updateUserData] = useState("");
+  const [isLogged, updateIsLogged] = useState(false);
 
   const getUserDetails = (userDetails) => {
+    console.log(userDetails);
     updateUserData(userDetails);
   };
-
+  const verifyUser = (username, password) => {
+    if (username === "Nasko" && password.toString() === "1996") {
+      updateIsLogged(true);
+    }
+  };
   return (
     <React.Fragment>
-      <UserLogin userDetails={getUserDetails}></UserLogin>
-      {userData &&
+      <UserLogin
+        userDetails={getUserDetails}
+        verifyUser={verifyUser}
+        whenLogout={updateIsLogged}
+      ></UserLogin>
+      {isLogged &&
         sounds.map((sound) => (
           <SoundPlayer key={sounds.indexOf(sound)} sound={sound} />
         ))}

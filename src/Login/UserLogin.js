@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Wrapper from "../Helpers/Wrapper";
 import styles from "./UserLogin.module.css";
 
-const UserLogin = ({ userDetails }) => {
+const UserLogin = ({ userDetails, verifyUser, whenLogout }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,10 +15,15 @@ const UserLogin = ({ userDetails }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    verifyUser(username, password);
     userDetails({
       username: username,
       password: password,
     });
+  };
+  const onLogout = (event) => {
+    event.preventDefault();
+    whenLogout(false);
   };
   return (
     <Wrapper>
@@ -42,6 +47,9 @@ const UserLogin = ({ userDetails }) => {
           ></input>
         </div>
         <button type="submit">Login</button>
+        <button type="button" onClick={onLogout}>
+          Logout
+        </button>
       </form>
     </Wrapper>
   );
