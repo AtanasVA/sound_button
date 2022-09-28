@@ -1,12 +1,12 @@
-.element {
-  border: 1px solid lightgray;
-  background-color: #9d00e049;
+.wrapper {
+  background: rgba(0, 0, 0, 0.75);
   box-shadow: 0 2px 8px rgb(0 0 0 / 26%);
   justify-content: center;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
   padding: 15px;
-  margin-top: 2%;
+  margin-top: 5%;
   text-align: center;
   width: 50%;
   border-radius: 20px;

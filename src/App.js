@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import SoundPlayer from "./SoundPlayer";
 import "./App.css";
 import UserLogin from "./Login/UserLogin";
+import UserLogOut from "./Login/UserLogOut";
+import Cromulon from "./Secret/Cromulon";
 
 const sounds = [
   {
@@ -23,7 +25,6 @@ function App() {
   const [isLogged, updateIsLogged] = useState(false);
 
   const getUserDetails = (userDetails) => {
-    console.log(userDetails);
     updateUserData(userDetails);
   };
   const verifyUser = (username, password) => {
@@ -31,17 +32,26 @@ function App() {
       updateIsLogged(true);
     }
   };
+
+  const onLogout = () => {
+    updateIsLogged(false);
+  };
+
   return (
     <React.Fragment>
-      <UserLogin
-        userDetails={getUserDetails}
-        verifyUser={verifyUser}
-        whenLogout={updateIsLogged}
-      ></UserLogin>
+      <Cromulon />
+      {!isLogged && (
+        <UserLogin
+          userDetails={getUserDetails}
+          verifyUser={verifyUser}
+          whenLogout={updateIsLogged}
+        ></UserLogin>
+      )}
       {isLogged &&
         sounds.map((sound) => (
           <SoundPlayer key={sounds.indexOf(sound)} sound={sound} />
         ))}
+      {isLogged && <UserLogOut onLogout={onLogout} />}
     </React.Fragment>
   );
 }

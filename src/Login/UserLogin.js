@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Wrapper from "../Helpers/Wrapper";
+import WrapperLogin from "../Helpers/WrapperLogin";
 import styles from "./UserLogin.module.css";
 
 const UserLogin = ({ userDetails, verifyUser, whenLogout }) => {
@@ -21,15 +21,13 @@ const UserLogin = ({ userDetails, verifyUser, whenLogout }) => {
       password: password,
     });
   };
-  const onLogout = (event) => {
-    event.preventDefault();
-    whenLogout(false);
-  };
   return (
-    <Wrapper>
+    <WrapperLogin>
       <form onSubmit={onSubmit} className={styles["form-body"]}>
         <div>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username" className={styles.text}>
+            Username
+          </label>
           <input
             name="username"
             type="text"
@@ -38,7 +36,9 @@ const UserLogin = ({ userDetails, verifyUser, whenLogout }) => {
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className={styles.text}>
+            Password
+          </label>
           <input
             name="username"
             type="number"
@@ -47,11 +47,8 @@ const UserLogin = ({ userDetails, verifyUser, whenLogout }) => {
           ></input>
         </div>
         <button type="submit">Login</button>
-        <button type="button" onClick={onLogout}>
-          Logout
-        </button>
       </form>
-    </Wrapper>
+    </WrapperLogin>
   );
 };
 
